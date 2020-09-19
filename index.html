@@ -14,16 +14,58 @@
   </head>
   <body>
     <nav class="navbar navbar-dark bg-dark">
-        <h1 class="navbar-text" style="text-align: center;">
-          Weather Dashboard
-        </h1>
-      </nav>
-      <nav class="navbar navbar-light bg-light">
-        <form class="form-inline">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      </nav>
+      <h1 class="navbar-text" style="text-align: center">Weather Dashboard</h1>
+    </nav>
+    <nav class="navbar navbar-light bg-light">
+      <form class="form-inline">
+        <input
+          class="form-control mr-sm-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+          Search by City
+        </button>
+      </form>
+    </nav>
+    <br>
+    <div class="row">
+      <div class="col-md-4 city-list">
+        <div class="card" style="width: 20rem">
+          <ul class="list-group list-group-flush">
+            <h5 id="header"style="text-align: center;">City Search List</h5>
+            <li class="list-group-item">City Name</li>
+            <li class="list-group-item">City Name</li>
+            <li class="list-group-item">City Name</li>
+            <li class="list-group-item">City Name</li>
+          </ul>
+        </div>
+      </div>
+      <br />
+      <div class="col-md-8 current-city">
+        <div class="card" style="width: 40rem">
+          <ul class="list-group list-group-flush">
+            <h2 id="header">Current City</h2>
+            <li class="list-group-item">Temperature</li>
+            <li class="list-group-item">Humidity</li>
+            <li class="list-group-item">Wind Speed</li>
+            <li class="list-group-item">UV Index</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div><h2 id= "header">5-day Weather Forecast</h2></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md">Day 1 of Forecast</div>
+        <div class="col-md">Day 2 of Forecast</div>
+        <div class="col-md">Day 3 of Forecast</div>
+        <div class="col-md">Day 4 of Forecast</div>
+        <div class="col-md">Day 5 of Forecast</div>
+      </div>
+    </div>
 
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

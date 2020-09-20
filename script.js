@@ -1,7 +1,7 @@
 //Hides elements that will show once the first search goes through.
 $(".current-box").hide();
 $(".forecast-banner").hide();
-var forecastdisplay;
+var forecastDisplay;
 
 //Pulls previous city searches from local storage.
 function allStorage() {
@@ -30,9 +30,9 @@ $(".search").on("click", function() {
     var queryURL2 = "https://api.openweathermap.org/data/2.5/forecast?q=" + subject + "&appid=3c34658c8e0e9fdb71064b81293a3704";
     var lat;
     var lon;
-    if (forecastdisplay === true) {
+    if (forecastDisplay === true) {
         $(".forecast-day").remove();
-        forecastdisplay = false;
+        forecastDisplay = false;
     }
 
 //This first ajax request collects current weather data and converts info into what we want to display.
@@ -78,24 +78,24 @@ $(".search").on("click", function() {
         var forecastTimes = response.list;
         for (i = 0; i < forecastTimes.length; i++) {
             if (forecastTimes[i].dt_txt[12] === "2") {
-                var forecastdate = forecastTimes[i].dt_txt;
-                var forecastdatedisplay = forecastdate.charAt(5) + forecastdate.charAt(6) + "/" + forecastdate.charAt(8) + forecastdate.charAt(9) +
-                "/" + forecastdate.charAt(0) + forecastdate.charAt(1) + forecastdate.charAt(2) + forecastdate.charAt(3);
-                var forecasticon = forecastTimes[i].weather[0].icon;
-                var forecasticonurl = "http://openweathermap.org/img/w/" + forecasticon + ".png";
+                var forecastDate = forecastTimes[i].dt_txt;
+                var forecastDateDisplay = forecastDate.charAt(5) + forecastDate.charAt(6) + "/" + forecastDate.charAt(8) + forecastDate.charAt(9) +
+                "/" + forecastDate.charAt(0) + forecastDate.charAt(1) + forecastDate.charAt(2) + forecastDate.charAt(3);
+                var forecastIcon = forecastTimes[i].weather[0].icon;
+                var forecastIconURL = "http://openweathermap.org/img/w/" + forecastIcon + ".png";
                 var forecastTemp = forecastTimes[i].main.temp * (9/5) - 459.67;
                 var forecastHum = forecastTimes[i].main.humidity;
-                if (forecastdisplay === false || forecastdisplay === undefined) {
+                if (forecastDisplay === false || forecastDisplay === undefined) {
                     $(".forecast-list").append("<div class='my-3 pb-3 col-md-2 col-lg-2 forecast-day'>" +
-                    "<h5>" + forecastdatedisplay + "<h5>" +
-                    "<img class='ficon' src=" + forecasticonurl + " alt='Weather icon'>" + 
+                    "<h5>" + forecastDateDisplay + "<h5>" +
+                    "<img class='ficon' src=" + forecastIconURL + " alt='Weather icon'>" + 
                     "<div>Temp: " + forecastTemp.toFixed(1) + " °F" + 
                     "</div><div>Humidity: " + forecastHum + 
                     "%</div></div></div>");
                 } 
             }
         }
-        forecastdisplay = true;
+        forecastDisplay = true;
     })
 });
 

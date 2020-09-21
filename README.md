@@ -34,7 +34,7 @@ THEN I am presented with the last searched city forecast
 <!-- <img src="05-third-party-apis-homework-demo.gif" alt="Daily Scheduler Gif"> -->
 
 ## Live Site Demo
-
+https://mnilou.github.io/weather-dashboard/
 
 ## Installation
 To install the project you will need internet connection and either a desktop, laptop, or mobile device.

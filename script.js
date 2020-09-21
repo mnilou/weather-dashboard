@@ -1,4 +1,5 @@
 //Hides elements that will show once the first search goes through.
+$(document).ready(function () {
 $(".current-box").hide();
 $(".forecast-banner").hide();
 var forecastDisplay;
@@ -140,4 +141,5 @@ $(document).on("click", ".prev-city", function () {
   $(".subject").val(subject);
   $(".search").click();
   $(this).remove();
+});
 });

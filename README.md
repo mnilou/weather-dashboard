@@ -31,7 +31,7 @@ THEN I am presented with the last searched city forecast
 
 
 ## App Screenshot
-<!-- <img src="05-third-party-apis-homework-demo.gif" alt="Daily Scheduler Gif"> -->
+<img src="screenshot.png" alt="Weather Dashboard Screenshot">
 
 ## Live Site Demo
 https://mnilou.github.io/weather-dashboard/

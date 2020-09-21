@@ -45,6 +45,9 @@ Used to find and save weather data.
 ## Credits
 
 As references and learning tools, I used the following websites:
+https://www.youtube.com/watch?v=53AoDB7vcbU;
+https://www.youtube.com/watch?v=CGexNgZn6sI&feature=youtu.be;
+https://www.youtube.com/watch?v=ga1VlO-LpYA&feature=youtu.be;
 
 
 I referenced these tutorials:

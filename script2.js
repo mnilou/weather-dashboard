@@ -74,7 +74,7 @@ $(document).ready(function () {
       var wind = $("<h4>")
         .addClass("card-text")
         .text("Wind Speed: " + response.wind.speed + " MPH");
-        var uv = $("<h4>").addClass("card-text").text("UV Index: " + response.value)
+        var uv = $("<h4>").addClass("UV Index: " + response[0].value)
       $(".current-box").show();
       $(".forecast-banner").show();
       // $("#current-city").text(response.name + " " + moment().format("l"));
@@ -86,15 +86,15 @@ $(document).ready(function () {
       lat = response.coord.lat;
       lon = response.coord.lon;
 
-      queryURL3 =
-        "http://api.openweathermap.org/data/2.5/uvi?&lat=" +
+      queryURL =
+        "http://api.openweathermap.org/data/2.5/uvi/forecast?&lat=" +
         lat +
         "&lon=" +
         lon +
         "&appid=443b8a6200a4e8cbb81798c7fbd4f928";
       //This is nested ajax request that gets the UV index but uses longitude and latitude from the previous ajax request to do so.
       $.ajax({
-        url: queryURL3,
+        url: queryURL,
         method: "GET",
       }).then(function (response) {
         $(".current-uv").text("UV Index: " + response[0].value);
@@ -145,13 +145,13 @@ $(document).ready(function () {
                 "</div><div>Humidity: " +
 
                 forecastHum +
-                "</div><div>Wind: " +
+                "%</div></div></div>Humidity: " +
 
                 forecastWind +
-                "MPH</div><div>UV Index: " +
+                "</div><div>MPH " +
 
                 forecastUV +
-                "</div>"
+                "</div><div>MPH "
                
             );
           }

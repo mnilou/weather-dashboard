@@ -88,13 +88,14 @@ $(function () {
           cardBody.append(cardTitle.append(icon), temp, hum, wind, uv)
         )
       );
-      var lat;
-      var lon;
+      var lat = response.coord.lat;
+      var lon = response.coord.lon;
+      
       lat = response.coord.lat;
       lon = response.coord.lon;
 
       queryURL3 =
-        "http://api.openweathermap.org/data/2.5/uvi/forecast?&lat=" +
+        "http://api.openweathermap.org/data/2.5/uvi?lat=" +
         lat +
         "&lon=" +
         lon +
@@ -104,7 +105,7 @@ $(function () {
         url: queryURL3,
         method: "GET",
       }).then(function (response) {
-        $(".current-uv").text("UV Index: " + response[0].value);
+        $(".current-uv").text("UV Index: " + response.value);
         console.log(response);
       });
     });

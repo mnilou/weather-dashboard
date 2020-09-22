@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
     <!-- <script src="assets/js/moment.min.js"></script> -->
   </head>
   <body>
@@ -14,7 +15,6 @@
     </div>
 <br>
     <div class="row ml-3">
-
       <div class="col-lg-4">
         <div class="row">
           <h3 class="ml-5 col-12" style="color: blue;">Search</h3>
@@ -33,20 +33,26 @@
           </div>
         </div>
       </div>
-        
+     <div class="container">   
       <div class="col-lg-8">
         <div class="row">
           <div id="today" class="col-12 mt-3 mb-3">
-         
+            <div class="d-flex justify-content-center">
+              <div style="width:3rem; height: 3rem; margin-top: 5em; color: blue;" class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
           </div>
+        </div>
+          <hr>
+        <div class="row">
           <div class="col-12 forecast-banner">
             <h2 class="col-12" style="color: blue;">5-Day Forecast</h2>
             <div class="row ml-1 card-group forecast-list"></div>    
           </div>
-        </div>
       </div>
     </div>
-
+  </div>  
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

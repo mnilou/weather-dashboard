@@ -1,5 +1,5 @@
 //Hides elements that will show once the first search goes through.
-$(document).ready(function () {
+$(function () {
   $(".current-box").hide();
   $(".forecast-banner").hide();
   var forecastDisplay;
@@ -30,13 +30,15 @@ $(document).ready(function () {
   $(".search").on("click", function () {
     var subject = $(".subject").val();
     console.log(subject);
-    var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${subject}&appid=443b8a6200a4e8cbb81798c7fbd4f928&units=imperial`;
+    var queryURL =
+      "https://api.openweathermap.org/data/2.5/weather?q=" +
+      subject +
+      "&appid=443b8a6200a4e8cbb81798c7fbd4f928&units=imperial";
     var queryURL2 =
       "https://api.openweathermap.org/data/2.5/forecast?q=" +
       subject +
       "&appid=443b8a6200a4e8cbb81798c7fbd4f928";
-    var lat;
-    var lon;
+    
     if (forecastDisplay === true) {
       $(".forecast-day").remove();
       forecastDisplay = false;
@@ -74,20 +76,25 @@ $(document).ready(function () {
       var wind = $("<h4>")
         .addClass("card-text")
         .text("Wind Speed: " + response.wind.speed + " MPH");
-        var uv = $("<h4>").addClass("card-text").text("UV Index: " + response.value)
+      var uv = $("<h4>")
+        .addClass("card-text")
+        .text("UV Index: " + response.value);
       $(".current-box").show();
       $(".forecast-banner").show();
       // $("#current-city").text(response.name + " " + moment().format("l"));
-      
-      $("#today").append(
-        card.append(cardBody.append(cardTitle.append(icon), temp, hum, wind, uv))
-      );
 
+      $("#today").append(
+        card.append(
+          cardBody.append(cardTitle.append(icon), temp, hum, wind, uv)
+        )
+      );
+      var lat;
+      var lon;
       lat = response.coord.lat;
       lon = response.coord.lon;
 
       queryURL3 =
-        "http://api.openweathermap.org/data/2.5/uvi?&lat=" +
+        "http://api.openweathermap.org/data/2.5/uvi/forecast?&lat=" +
         lat +
         "&lon=" +
         lon +
@@ -98,6 +105,7 @@ $(document).ready(function () {
         method: "GET",
       }).then(function (response) {
         $(".current-uv").text("UV Index: " + response[0].value);
+        console.log(response);
       });
     });
 
@@ -135,24 +143,18 @@ $(document).ready(function () {
                 forecastDateDisplay +
                 "<h5>" +
                 "<img class='ficon' src=" +
-
                 forecastIconURL +
                 " alt='Weather icon'>" +
                 "<div>Temp: " +
-
                 forecastTemp.toFixed(1) +
                 " °F" +
                 "</div><div>Humidity: " +
-
                 forecastHum +
                 "</div><div>Wind: " +
-
                 forecastWind +
                 "MPH</div><div>UV Index: " +
-
                 forecastUV +
                 "</div>"
-               
             );
           }
         }
